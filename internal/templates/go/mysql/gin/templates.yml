@@ -1,0 +1,54 @@
+name: go-standard-http-mysql
+language: go
+framework: net/http
+database: mysql
+architecture: layered
+
+description: >
+  Go backend project using net/http and MySQL
+  with handler-service-repository architecture.
+
+ai_context:
+  description: >
+    This is a Go backend project using net/http and MySQL.
+    The architecture follows handler, service, and repository layers.
+  rules:
+    - Use explicit error handling
+    - No global variables
+    - Database access only inside repository
+    - Return JSON responses
+
+scaffold:
+  cmd/server/main.go:
+    template: scaffold/main_http.go.tpl
+
+  internal/config/config.go:
+    template: scaffold/config.go.tpl
+
+  internal/database/db.go:
+    template: scaffold/db.go.tpl
+
+  internal/router/router.go:
+    template: scaffold/router_http.go.tpl
+
+  internal/handler/health_handler.go:
+    template: scaffold/handler.go.tpl
+
+  internal/service/health_service.go:
+    template: scaffold/service.go.tpl
+
+  internal/repository/health_repository.go:
+    template: scaffold/repository.go.tpl
+
+  .gitignore:                  
+    template: scaffold/gitignore.tpl
+
+  .env:                        
+    template: scaffold/env.tpl
+    
+  Dockerfile:
+    template: scaffold/Dockerfile.tpl
+
+  docker-compose.yml:
+    template: scaffold/docker-compose.yml.tpl
+

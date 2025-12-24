@@ -1,0 +1,16 @@
+language: go
+
+templates:
+  - name: standard-http-mysql
+    description: Go standard net/http with MySQL
+    path: standard
+    default: true
+
+  - name: gin-mysql
+    description: Gin framework with MySQL
+    path: gin
+
+  - name: chi-mysql
+    description: Chi router with MySQL
+    path: chi
+  
