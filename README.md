@@ -1,9 +1,3 @@
-siap 👍
-berikut **README.md profesional, rapi, dan siap dipasang di GitHub** untuk project **hedeeh** kamu.
-Aku susun dengan gaya **open-source friendly**, jelas untuk user lain, dan sesuai dengan arsitektur scaffold + embed template yang kamu buat.
-
----
-
 # 🚀 hedeeh – Go Project Scaffolding CLI
 
 **hedeeh** adalah **CLI tool berbasis Go** untuk menghasilkan (*scaffold*) struktur project backend Go secara otomatis dengan pilihan:
