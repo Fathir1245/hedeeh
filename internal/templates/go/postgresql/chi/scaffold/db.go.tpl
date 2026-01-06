@@ -4,13 +4,14 @@ import (
 	"database/sql"
 	"fmt"
 
-	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/jackc/pgx/v5/stdlib" // Driver PostgreSQL
 	"{{.ModuleName}}/internal/config"
 )
 
-func NewMySQL(cfg config.Config) (*sql.DB, error) {
+func NewPostgres(cfg config.Config) (*sql.DB, error) {
+	// Format DSN PostgreSQL: postgres://user:password@host:port/dbname?sslmode=disable
 	dsn := fmt.Sprintf(
-		"%s:%s@tcp(%s:%s)/%s?parseTime=true",
+		"postgres://%s:%s@%s:%s/%s?sslmode=disable",
 		cfg.DBUser,
 		cfg.DBPass,
 		cfg.DBHost,
@@ -18,7 +19,8 @@ func NewMySQL(cfg config.Config) (*sql.DB, error) {
 		cfg.DBName,
 	)
 
-	db, err := sql.Open("mysql", dsn)
+	// Ganti "mysql" menjadi "pgx"
+	db, err := sql.Open("pgx", dsn)
 	if err != nil {
 		return nil, err
 	}

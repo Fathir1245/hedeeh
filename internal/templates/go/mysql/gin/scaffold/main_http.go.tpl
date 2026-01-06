@@ -1,17 +1,17 @@
 package main
 
 import (
-	"log"
-	"net/http"
+	"github.com/gin-gonic/gin"
 
 	"{{.ModuleName}}/internal/router"
 )
 
 func main() {
-	r := router.NewRouter()
+	r := gin.Default()
+
+	router.RegisterUserRoutes(r, nil)
 
 	log.Println("🚀 Server running on :{{.Port}}")
-	if err := http.ListenAndServe(":{{.Port}}", r); err != nil {
-		log.Fatal(err)
-	}
+	r.Run("{.Port}")
+
 }

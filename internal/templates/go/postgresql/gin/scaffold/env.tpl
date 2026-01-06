@@ -3,7 +3,7 @@ APP_ENV=development
 APP_PORT={{ .Port }}
 
 DB_HOST=localhost
-DB_PORT=3306
+DB_PORT=5432
 DB_NAME={{ .ProjectName }}_db
-DB_USER=root
+DB_USER=postgres
 DB_PASSWORD=password
