@@ -7,22 +7,22 @@ import (
 	"{{.ModuleName}}/internal/service"
 )
 
-type HealthHandler struct {
-	service *service.HealthService
+type UserHandler struct {
+	userService UserService 
 }
 
-func NewHealthHandler() *HealthHandler {
-	return &HealthHandler{
-		service: service.NewHealthService(),
-	}
+func (h *UserHandler) Create(w http.ResponseWriter, r *http.Request) {
+
 }
 
-func (h *HealthHandler) Check(w http.ResponseWriter, r *http.Request) {
-	response := map[string]string{
-		"status": h.service.Status(),
-	}
+func (h *UserHandler) GetByID(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	_ = json.NewEncoder(w).Encode(response)
+}
+
+func (h *UserHandler) Update(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func (h *UserHandler) Delete(w http.ResponseWriter, r *http.Request) {
+	
 }

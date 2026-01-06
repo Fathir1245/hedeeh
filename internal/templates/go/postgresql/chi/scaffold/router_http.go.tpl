@@ -1,17 +1,18 @@
 package router
 
-import (
-	"net/http"
+import "github.com/go-chi/chi"
 
-	"{{.ModuleName}}/internal/handler"
-)
+// RegisterUserRoutes registers the user-related routes in the provided chi.Router.
+func RegisterUserRoutes(r chi.Router, uh *UserHandler) {
+    // POST   /user
+    r.Post("/user", uh.CreateUser)
 
-func NewRouter() http.Handler {
-	mux := http.NewServeMux()
+    // GET    /user/{id}
+    r.Get("/user/{id}", uh.GetUser)
 
-	healthHandler := handler.NewHealthHandler()
+    // PUT    /user/{id}
+    r.Put("/user/{id}", uh.UpdateUser)
 
-	mux.HandleFunc("/health", healthHandler.Check)
-
-	return mux
+    // DELETE /user/{id}
+    r.Delete("/user/{id}", uh.DeleteUser)
 }

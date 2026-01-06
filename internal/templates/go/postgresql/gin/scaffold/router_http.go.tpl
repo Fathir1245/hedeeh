@@ -1,17 +1,17 @@
 package router
 
 import (
-	"net/http"
-
+	"github.com/gin-gonic/gin"
 	"{{.ModuleName}}/internal/handler"
 )
 
-func NewRouter() http.Handler {
-	mux := http.NewServeMux()
+func RegisterUserRoutes(engine *gin.Engine, userHandler *UserHandler) {
 
-	healthHandler := handler.NewHealthHandler()
+	engine.POST("/user", userHandler.CreateUser)
 
-	mux.HandleFunc("/health", healthHandler.Check)
+	engine.GET("/user/:id", userHandler.GetUserByID)
 
-	return mux
+	engine.PUT("/user/:id", userHandler.UpdateUser)
+
+	engine.DELETE("/user/:id", userHandler.DeleteUser)
 }

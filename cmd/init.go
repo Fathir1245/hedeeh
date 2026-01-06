@@ -42,7 +42,7 @@ var initCmd = &cobra.Command{
 		// 3. Pilih Database (PENGGANTI Framework Lama)
 		var dbOptions []string
 		if config.Language == "Go" {
-			dbOptions = []string{"MySQL", "PostgreSQL", "MongoDB"}
+			dbOptions = []string{"MySQL", "PostgreSQL"}
 		}
 
 		dbQuestion := &survey.Select{

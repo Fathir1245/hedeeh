@@ -3,16 +3,15 @@ package main
 import (
 	"log"
 	"net/http"
-	"github.com/gin-gonic/gin"
+	"github.com/go-chi/chi"
 
 	"{{.ModuleName}}/internal/router"
 )
 
 func main() {
-	r := gin.Default()
-	router.RegisterProductRoutes(r, handler)
-	r.Run(":{.Port}")
+	r := chi.NewRouter()
 
+	router.RegisterUserRoutes(r, nil)
 
 	log.Println("🚀 Server running on :{{.Port}}")
 	if err := http.ListenAndServe(":{{.Port}}", r); err != nil {

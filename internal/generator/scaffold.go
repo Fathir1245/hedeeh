@@ -34,14 +34,14 @@ func ScaffoldProject(cfg ProjectConfig) error {
 	templateMap := map[string]string{
 		"cmd/api/main.go": baseTplPath + "/main_http.go.tpl",
 
-		"internal/config/config.go":         baseTplPath + "/config.go.tpl",
-		"internal/database/db.go":           baseTplPath + "/db.go.tpl",
-		"internal/model/models.go":          baseTplPath + "/models.go.tpl",
-		"internal/repository/repository.go": baseTplPath + "/repository.go.tpl",
-		"internal/service/service.go":       baseTplPath + "/service.go.tpl",
+		"internal/config/config.go":               baseTplPath + "/config.go.tpl",
+		"internal/database/db.go":                 baseTplPath + "/db.go.tpl",
+		"internal/model/users.go":                 baseTplPath + "/models.go.tpl",
+		"internal/repository/users_repository.go": baseTplPath + "/repository.go.tpl",
+		"internal/service/users_service.go":       baseTplPath + "/service.go.tpl",
 
-		"internal/handler/handler.go": baseTplPath + "/handler.go.tpl",
-		"internal/router/router.go":   baseTplPath + "/router_http.go.tpl",
+		"internal/handler/users_handler.go": baseTplPath + "/handler.go.tpl",
+		"internal/router/users_router.go":   baseTplPath + "/router_http.go.tpl",
 
 		".gitignore":         baseTplPath + "/gitignore.tpl",
 		".env":               baseTplPath + "/env.tpl",
